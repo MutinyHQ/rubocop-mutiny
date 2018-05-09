@@ -1,0 +1,28 @@
+#
+# Global config
+#
+AllCops:
+  TargetRubyVersion: 2.5
+  DisplayCopNames: true
+require:
+  - rubocop-rspec
+
+Indentation:
+  IgnoredMethods:
+    - '=='
+    - '<<'
+    - '+'
+    - '-'
+    - '*'
+    - '/'
+    - '<=>'
+    - '='
+    - to
+
+Rails/UnknownEnv:
+  Environments:
+    - demo
+    - development
+    - production
+    - staging
+    - test

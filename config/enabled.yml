@@ -1,0 +1,308 @@
+#
+# Enabled cops (in addition to the defaults)
+#
+
+#
+# Layout
+#
+
+# Enabled (overriding default)
+Layout/FirstArrayElementLineBreak:
+  Enabled: true
+Layout/FirstHashElementLineBreak:
+  Enabled: true
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: true
+Layout/FirstMethodParameterLineBreak:
+  Enabled: true
+Layout/MultilineAssignmentLayout:
+  Enabled: true
+  EnforcedStyle: same_line
+
+# Updated Settings
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+Layout/EmptyLineBetweenDefs:
+  AllowAdjacentOneLineDefs: true
+Layout/EmptyLinesAroundClassBody:
+  EnforcedStyle: no_empty_lines
+Layout/EmptyLinesAroundModuleBody:
+  EnforcedStyle: no_empty_lines
+Layout/ExtraSpacing:
+  AllowForAlignment: true
+Layout/FirstParameterIndentation:
+  EnforcedStyle: consistent
+Layout/IndentArray:
+  EnforcedStyle: consistent
+Layout/IndentHash:
+  EnforcedStyle: consistent
+Layout/MultilineArrayBraceLayout:
+  EnforcedStyle: symmetrical
+Layout/MultilineHashBraceLayout:
+  EnforcedStyle: symmetrical
+Layout/MultilineMethodCallBraceLayout:
+  EnforcedStyle: symmetrical
+Layout/MultilineMethodDefinitionBraceLayout:
+  EnforcedStyle: symmetrical
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+Layout/SpaceInLambdaLiteral:
+
+  EnforcedStyle: require_space
+Layout/CaseIndentation:
+  EnforcedStyle: end
+  IndentOneStep: false
+#
+# Lint
+#
+
+# Enabled (overriding default)
+Lint/AmbiguousBlockAssociation:
+  Enabled: true
+Lint/BlockAlignment:
+  EnforcedStyleAlignWith: start_of_block
+Lint/EndAlignment:
+  EnforcedStyleAlignWith: start_of_line
+Lint/UnusedMethodArgument:
+  AllowUnusedKeywordArguments: true
+
+#
+# Rails
+#
+
+# Enabled (overriding default)
+Rails:
+  Enabled: true
+
+#
+# Style
+#
+
+# Enabled (overriding default)
+Style/AutoResourceCleanup:
+  Enabled: true
+Style/CollectionMethods:
+  Enabled: true
+Style/MethodCalledOnDoEndBlock:
+  Enabled: true
+Style/StringMethods:
+  Enabled: true
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+
+Style/VariableNumber:
+  Enabled: true
+  EnforcedStyle: snake_case
+Style/Send:
+  Enabled: true
+Style/OptionHash:
+  Enabled: true
+Style/SpecialGlobalVars:
+  Enabled: true
+Style/DoubleNegation:
+  Enabled: true
+Style/MultilineBlockChain:
+  Enabled: true
+Style/MethodCalledOnDoEndBlock:
+  Enabled: true
+
+Style/FirstArrayElementLineBreak:
+  Enabled: true
+Style/FirstHashElementLineBreak:
+  Enabled: true
+Style/FirstMethodArgumentLineBreak:
+  Enabled: true
+Style/FirstMethodParameterLineBreak:
+  Enabled: true
+Style/MultilineArrayBraceLayout:
+  Enabled: true
+Style/MultilineHashBraceLayout:
+  Enabled: true
+Style/MultilineMethodCallBraceLayout:
+  Enabled: true
+Style/MultilineMethodDefinitionBraceLayout:
+  Enabled: true
+
+#
+# We prefer trailing commas so that the git diff is reduced when adding elements
+#
+Style/TrailingCommaInArguments:
+  Enabled: true
+  EnforcedStyleForMultiline: consistent_comma
+Style/TrailingCommaInLiteral:
+  Enabled: true
+  EnforcedStyleForMultiline: consistent_comma
+
+#
+# Prefer spaces around default parameters for readability
+#
+Style/SpaceAroundEqualsInParameterDefault:
+  Enabled: true
+
+#
+# 120 is a reasonable max line length
+#
+Metrics/LineLength:
+  Enabled: true
+  Max: 120
+
+#
+# We prefer trailing dots to allow code to be pasted into a REPL
+#
+Layout/DotPosition:
+  Enabled: true
+  EnforcedStyle: trailing
+
+# Updated settings
+Style/PredicateName:
+  NamePrefixBlacklist:
+    - is_
+    - have_
+  NameWhitelist:
+    - has_attachment
+    - has_pdf_attachment
+    - has_state_filing_requirements
+    - is_return=
+    - has_sui_sc_rate
+Style/BlockDelimiters:
+  EnforcedStyle: line_count_based
+  IgnoredMethods:
+    - it
+    - expect
+    - change
+Style/BracesAroundHashParameters:
+  EnforcedStyle: context_dependent
+# TODO: will this make our code safer? is it okay to use?
+# Style/ClassAndModuleChildren:
+#   EnforcedStyle: compact
+Style/ConditionalAssignment:
+  EnforcedStyle: assign_inside_condition
+  IncludeTernaryExpressions: false
+Style/FormatStringToken:
+  EnforcedStyle: template
+Style/HashSyntax:
+  EnforcedStyle: ruby19_no_mixed_keys
+Style/Lambda:
+  EnforcedStyle: literal
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: '()'
+    '%i': ()
+    '%I': ()
+    '%r': ()
+    '%w': ()
+    '%W': ()
+Style/TernaryParentheses:
+  EnforcedStyle: require_parentheses_when_complex
+Style/MethodCallWithArgsParentheses:
+  IgnoreMacros: true
+  IgnoredMethods:
+    # Ruby
+    - puts
+    - raise
+    - fail
+    - exit
+    - sleep
+
+    # Rails
+    - render
+    - redirect_to
+    - authorize!
+
+    # Code loading
+    - require
+    - require_relative
+    - require_dependency
+    - load
+
+    # Bundler
+    - gem
+    - ruby
+    - source
+
+    # Rspec
+    - it
+    - describe
+    - context
+    - to
+    - not_to
+    - to_not
+    - be
+    - be_a
+    - be_an
+    - be_between
+    - be_falsey
+    - be_kind_of
+    - be_instance_of
+    - be_truthy
+    - be_within
+    - eq
+    - eql
+    - end_with
+    - include
+    - match
+    - raise_error
+    - respond_to
+    - start_with
+
+    # Rake
+    - task
+
+    # Gem
+    - add_dependency
+    - add_development_dependency
+
+    # Grape
+    - resources
+    - params
+    - requires
+    - desc
+    - optional
+    - get
+    - post
+    - put
+    - delete
+
+    # ActiveAdmin
+    - belongs_to
+    - sidebar
+    - action_item
+    - member_action
+    - page_action
+    - active_admin_form_for
+    - h1
+    - h2
+    - h3
+    - h4
+    - register
+    - register_page
+    - index
+    - column
+    - humanized_column
+    - panel
+    - attributes_table_for
+    - table_for
+    - row
+    - columns
+    - div
+    - span
+    - para
+    - text_node
+
+    # fields.
+    - input
+    - action
+
+# Rails
+Rails/SafeNavigation:
+  ConvertTry: false
+
+Rails/SkipsModelValidations:
+  Enabled: true
+
+Rails/Date:
+  Enabled: true

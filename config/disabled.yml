@@ -1,0 +1,293 @@
+#
+# Disabled Rules
+#
+
+#
+# Metrics
+#
+# Reasoning: We are not ready for these to be blocking, may be a good candidate
+#   for warnings.
+#
+Metrics/AbcSize:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/ModuleLength:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+# RSpec
+
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/DescribedClass:
+  Enabled: false
+RSpec/DescribeMethod:
+  Enabled: false
+RSpec/DescribeClass:
+  Enabled: false
+RSpec/LetSetup:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
+RSpec/NestedGroups:
+  Enabled: false
+RSpec/NotToNot:
+  Enabled: false
+RSpec/ExpectInHook:
+  Enabled: false
+
+#
+# Rails - disable all autocorrects
+#
+
+# Reasoning: Some of these autocorrects change code meaning and break
+#    functionality.
+#
+Rails/ReadWriteAttribute:
+  Enabled: false
+Rails/Date:
+  AutoCorrect: false
+Rails/TimeZone:
+  Enabled: false
+  AutoCorrect: false
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+  AutoCorrect: false
+
+Rails/ActionFilter:
+  AutoCorrect: false
+Rails/ActiveSupportAliases:
+  AutoCorrect: false
+Rails/ApplicationJob:
+  AutoCorrect: false
+Rails/ApplicationRecord:
+  AutoCorrect: false
+Rails/Blank:
+  AutoCorrect: false
+Rails/Delegate:
+  AutoCorrect: false
+Rails/DelegateAllowBlank:
+  AutoCorrect: false
+Rails/DynamicFindBy:
+  AutoCorrect: false
+Rails/EnumUniqueness:
+  AutoCorrect: false
+Rails/Exit:
+  AutoCorrect: false
+Rails/FilePath:
+  AutoCorrect: false
+Rails/FindBy:
+  AutoCorrect: false
+Rails/FindEach:
+  AutoCorrect: false
+Rails/HasAndBelongsToMany:
+  AutoCorrect: false
+Rails/HttpPositionalArguments:
+  AutoCorrect: false
+Rails/NotNullColumn:
+  AutoCorrect: false
+Rails/Output:
+  AutoCorrect: false
+Rails/OutputSafety:
+  AutoCorrect: false
+Rails/PluralizationGrammar:
+  AutoCorrect: false
+Rails/Present:
+  AutoCorrect: false
+Rails/RelativeDateConstant:
+  AutoCorrect: false
+Rails/RequestReferer:
+  AutoCorrect: false
+Rails/ReversibleMigration:
+  AutoCorrect: false
+Rails/SafeNavigation:
+  AutoCorrect: false
+Rails/SaveBang:
+  AutoCorrect: false
+Rails/ScopeArgs:
+  AutoCorrect: false
+Rails/SkipsModelValidations:
+  AutoCorrect: false
+Rails/UniqBeforePluck:
+  AutoCorrect: false
+Rails/Validation:
+  AutoCorrect: false
+
+#
+# Conservative AutoCorrect for rollout
+#
+Lint/ParametersBeforeBlock:
+  Enabled: false
+
+Style/ConditionalAssignment:
+  AutoCorrect: false
+Style/EachWithObject:
+  AutoCorrect: false
+Style/FlipFlop:
+  AutoCorrect: false
+Style/MutableConstant:
+  AutoCorrect: false
+Style/ClassCheck:
+  AutoCorrect: false
+Style/CollectionMethods:
+  AutoCorrect: false
+Style/EmptyMethod:
+  AutoCorrect: false
+  EnforcedStyle: expanded
+Style/NestedModifier:
+  AutoCorrect: false
+Style/NestedTernaryOperator:
+  AutoCorrect: false
+Style/NonNilCheck:
+  AutoCorrect: false
+Style/SafeNavigation:
+  AutoCorrect: false
+Style/StringMethods:
+  AutoCorrect: false
+Style/DoubleNegation:
+  AutoCorrect: false
+Style/RescueModifier:
+  AutoCorrect: false
+Style/ZeroLengthPredicate:
+  AutoCorrect: false
+
+#
+# We don't have a preference on enforcing `zero?` vs `== 0`
+#
+Style/NumericPredicate:
+  Enabled: false
+
+#
+# We don't typically document all our classes with comments
+#
+Style/Documentation:
+  Enabled: false
+
+#
+# We use this feature pretty rarely, we don't need to enforce
+#   usage of a particular methods
+#
+Style/FormatString:
+  Enabled: false
+
+#
+# We are okay with Struct inheritance for defining methods, etc
+#
+Style/StructInheritance:
+  Enabled: false
+
+#
+# We have many code paths that rely on defining parent modules
+#   Will this make our code safer?
+#
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+#
+# We do not need to favor cases of trailing if/unless
+#
+Style/IfUnlessModifier:
+  Enabled: false
+
+#
+# Throws exceptions when autocorrecting certain statements
+#
+Style/YodaCondition:
+  Enabled: false
+
+#
+# Invalid for Sidekiq jobs
+#
+Style/OptionHash:
+  Enabled: false
+
+#
+# Did not evaluate the right context in a `define_method` call
+#
+Style/RedundantSelf:
+  Enabled: false
+
+#
+# These two seem to come as a package - we would probably only
+#   disallow an empty else statement
+#
+Style/MissingElse:
+  Enabled: false
+Style/EmptyElse:
+  Enabled: false
+
+#
+# Do not enforce `unless` over `if !condition`
+#
+Style/NegatedIf:
+  Enabled: false
+
+#
+# Do not enforce inverse methods, e.g.
+# - `none?` over `!any?`
+# - `reject { condition }` over `select { !condition }`
+#
+Style/InverseMethods:
+  Enabled: false
+
+#
+# We do not want to enforce a style on Symbol/Word arrays
+#
+Style/SymbolArray:
+  Enabled: false
+Style/WordArray:
+  Enabled: false
+
+#
+# Can cause infinite loop with complex ternaries
+#
+Style/TernaryParentheses:
+  Enabled: false
+
+Security/YAMLLoad: # Not functionally equivalent
+  Enabled: false
+
+#
+# Dropping the predicate can make code less understandable.
+# For example, `is_foo?` and `has_foo?` have different semantics,
+# but this rule would suggest they both be renamed `foo?`.
+#
+Naming/PredicateName:
+  Enabled: false
+
+#
+# TODO: Enable in V2
+#
+Style/AccessorMethodName:
+  Enabled: false
+Style/SingleLineBlockParams:
+  Enabled: false
+Style/RegexpLiteral:
+  Enabled: false
+Style/ModuleFunction:
+  Enabled: false
+Style/LambdaCall:
+  Enabled: false
+Style/ImplicitRuntimeError:
+  Enabled: false
+Style/Next:
+  Enabled: false
+Style/GuardClause:
+  Enabled: false
+  MinBodyLength: 4
+Style/WhileUntilModifier:
+  Enabled: false
+
+#
+# We are removing IceNine in favor of this approach
+#
+Style/FrozenStringLiteralComment:
+  Enabled: false
