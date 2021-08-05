@@ -107,8 +107,6 @@ Style/DoubleNegation:
   Enabled: true
 Style/MultilineBlockChain:
   Enabled: true
-Style/MethodCalledOnDoEndBlock:
-  Enabled: true
 
 Style/FirstArrayElementLineBreak:
   Enabled: true
@@ -146,7 +144,7 @@ Style/SpaceAroundEqualsInParameterDefault:
 #
 # 120 is a reasonable max line length
 #
-Metrics/LineLength:
+Layout/LineLength:
   Enabled: true
   Max: 120
 

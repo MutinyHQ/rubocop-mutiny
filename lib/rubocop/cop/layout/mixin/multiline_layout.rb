@@ -10,7 +10,7 @@ module RuboCop
         private
 
         def check_method_line_break(node, children)
-          return if ignored_method?(node.method_name)
+          return if node.respond_to?(:method_name) && ignored_method?(node.method_name)
           return if children.empty?
 
           check_children_line_break(node, children)

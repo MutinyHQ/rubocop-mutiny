@@ -37,6 +37,7 @@ module RuboCop
           # when determining where line breaks should appear.
           if (last_arg = args.last)
             if last_arg.hash_type? && !last_arg.braces?
+              args = args.dup
               args = args.concat(args.pop.children)
             end
           end
