@@ -18,6 +18,10 @@ Layout/FirstMethodParameterLineBreak:
 Layout/MultilineAssignmentLayout:
   Enabled: true
   EnforcedStyle: same_line
+Layout/MultilineHashKeyLineBreaks:
+  Enabled: true
+Layout/MultilineMethodArgumentLineBreaks:
+  Enabled: true
 
 # Updated Settings
 Layout/AlignParameters:
